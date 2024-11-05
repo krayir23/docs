@@ -1,0 +1,42 @@
+---
+title: 'ICN ON'
+description: ''
+---
+
+<Info>
+Herhangi bir sunucuya kurabilirsiniz. **Sürekli çalışacak.** \
+Kullandığım sunucu: **Ubuntu 22.04**
+</Info>
+
+1. https://testnet.icn.global/#learn adresine gidin ve cüzdanı bağlayın.
+2. Task kısmından görevleri yapın.
+3. **Mint ICN testnet passport** kısmında **Mint** yapın.
+4. **Delegate ICN passport** kısmındaki altı çizili yazıya tıklayın ve açılan ekranda **Delegate** tıklayın. **
+Yeni bir ethereum cüzdanı oluşturun** ve **adresini bu alana verin**.
+
+Sunucuya geçelim
+
+#### Screen oluşturalım
+
+```bash
+screen -S icn
+```
+
+#### ON çalıştıralım
+
+> Delegate etmek için oluşturduğunuz cüzdanın private keyini çıkarın. **0x kısmı olmadan** **PRIVATE_KEY yazan kısma PRIVATE_KEY yazısını silip yapıştırın.**
+
+```bash
+curl -o- https://console.icn.global/downloads/install/start.sh | bash -s -- -p PRIVATE_KEY
+```
+
+Screenden **CTRL + A + D** çıkabilirsiniz.
+
+
+#### Tekrar siteye dönün
+
+- Download the ON application
+- Install the ON application
+- Run ON
+
+tasklarının yanındaki **Check** butonlarına bir kaç kez basın ve **Claim** edin.

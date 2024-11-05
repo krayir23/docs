@@ -85,7 +85,8 @@
             "others/nubit"
           ]
         },
-         "others/risc-zero-v4-ceremony"
+         "others/risc-zero-v4-ceremony",
+         "others/icn"
       ]
     }
   ],
