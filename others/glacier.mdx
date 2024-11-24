@@ -77,3 +77,27 @@ Screenden **CTRL + A + D** çıkabilirsiniz.
 Kontrol için \
 https://testnet.nodes.glacier.io/status adresinden bir saat sonra cüzdanınızı bağlayıp kontrol edebilirsiniz.
 </Note>
+
+
+## Glacier 0.0.2 update
+
+Screen girelim
+```bash
+screen -r glacier
+```
+
+Docker durdurup silelim
+```bash
+docker stop glacier-verifier
+```
+
+```bash
+docker rm glacier-verifier
+```
+
+Güncel versiyonu çalıştıralım
+> Oluşturduğunuz cüzdanın private keyini **YOUR_PRIVATE_KEY yazan kısma YOUR_PRIVATE_KEY yazısını silip yapıştırın.**
+
+```bash
+docker run -d -e PRIVATE_KEY=YOUR_PRIVATE_KEY --name glacier-verifier docker.io/glaciernetwork/glacier-verifier:v0.0.2
+```
