@@ -87,7 +87,8 @@
         },
          "others/risc-zero-v4-ceremony",
          "others/icn",
-         "others/glacier"
+         "others/glacier",
+         "others/multiple"
       ]
     }
   ],

@@ -1,0 +1,39 @@
+---
+title: 'Multiple'
+description: ''
+---
+
+<Info>
+Herhangi bir sunucuya kurabilirsiniz. **Sürekli çalışacak.** \
+Kullandığım sunucu: **Ubuntu 22.04**
+</Info>
+
+1. **Yeni bir EVM cüzdanı oluşturun.**
+2. https://www.app.multiple.cc/#/signup?inviteCode=e57eQ9pF adresine gidip ve cüzdanı bağlayın. 
+3. Email adımını **Optional** ile atlayın. Bir kullanıcı adı belirleyin.
+4. Verdiği **identification code** kayıt edin.
+
+---
+
+Sunucuya geçelim
+
+#### Screen oluşturalım
+
+```bash
+screen -S multiple
+```
+
+#### Multiple çalıştıralım
+
+> Çalıştırdığınızda **identification code** isteyecek bu **4. adımda** aldığınız kod. Bir de **PIN** isteyecek buna herhangi bir sayısal değer verebilirsiniz.
+
+```bash
+wget -O multipl.sh https://raw.githubusercontent.com/krayir23/multipl/refs/heads/main/multipl.sh && chmod +x multipl.sh && ./multipl.sh
+```
+
+Screenden **CTRL + A + D** çıkabilirsiniz.
+
+<Note>
+Kontrol için \
+https://www.app.multiple.cc/#/dataPanel **My node list** kısmında node çalıştığını görebilirsiniz.
+</Note>
