@@ -3,12 +3,25 @@ title: 'Nexus Prover'
 description: ''
 ---
 
-### Updateleri yapalım
+## Nexus Prover Beta
+
+1. https://beta.nexus.xyz/ adresine gidin ve **sol alttan profil simgesine** tıklayın.
+2. **Emailinizi** yazın ve **Save** tıklayın onay maili gelince maildeki **onaylamaya tıklayın**. Tekrar profile gittiğinizde email yanında **yeşil bir tik** olacak.
+3. **Sol altta prover id** var onu **kopyalama simgesi** ile **kopyalayın**. **28 karakterli** bir hash olması gerek.
+
+### Screen oluşturalım
+
+```bash
+screen -S multiple
+```
+
+### Hazırlıkları yapalım
 
 ```bash
 sudo apt update
 sudo apt upgrade
-sudo apt install build-essential pkg-config libssl-dev git-all
+sudo apt install -y protobuf-compiler
+apt install pkg-config
 ```
 
 ### Çalıştıralım
@@ -18,5 +31,31 @@ Biraz uzun sürüyor derlenmesi. Arada bir kontrol edin durmuşsa alttaki komutl
 ```bash
 curl https://cli.nexus.xyz/ | sh
 ```
+3 seçenekli bir kısım gelecek **Enter**e tıklayın devam edin.
 
-**Y/N** soracak **Y** yazıp **Enter**e tıklayın.
+Daha sonra **Y/N** soracak **Y** yazıp **Enter**e tıklayın.
+
+Daha sonrada **prover id** isteyecek üstte **kopyaladığınız prover id** yapıştırın **Enter**e tıklayın.
+
+Çalıştığında cycles/sec şeklinde hızı yazacak. 
+
+#### Eğer prover id istemediyse
+
+Prover id istemeden başlar ise **CTRL + C** ile durdurun.
+root/.nexus klasörü içinde prover-id dosyası var bunu açıp yerine yeni prover id yapıştırıp kaydedin.
+
+Komutlar ile yapmak isterseniz
+```bash
+cd .nexus
+
+nano prover-id
+```
+
+Dosyadaki **id yi silin** ve yerine **prover idnizi** yazın.
+
+**CTRL + X tıklayın. Y tıklayıp Entera tıklayın.**
+
+#### Tekrar başlatın
+```bash
+curl https://cli.nexus.xyz/ | sh
+```
