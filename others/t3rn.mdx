@@ -1,0 +1,68 @@
+---
+title: 'T3rn'
+description: ''
+---
+
+<Info>
+Herhangi bir sunucuya kurabilirsiniz. **Sürekli çalışacak.** \
+Kullandığım sunucu: **Ubuntu 22.04**
+</Info>
+
+1. **Yeni bir EVM cüzdanı oluşturun.**
+2. Ana cüzdanınızda elinizde olan **Sepolia ETH** miktarına göre (**15 ETH** altında problem olabilir) **Base Sepolia**, **OP Sepolia** ve **Arbitrum Sepolia** ağlarına https://testnets.relay.link/bridge/sepolia üzerinden parçalayıp bridge yapın.
+3. Bridge işlemi bitince bu ağlardaki **Sepolia ETH yeni cüzdanınıza gönderin.** 
+4. https://bridge.t1rn.io/ sitesine gidin oluşturduğunuz cüzdanı bağlayın ve birkaç manuel işlem yapın. **Min 1 BRN** görünmesi gerek.
+5. Yeni cüzdanın private keyini çıkarıp not edin.
+
+---
+
+Sunucuya geçelim
+
+#### Screen oluşturalım
+
+```bash
+screen -S executor
+```
+
+#### Değerleri tanımlayalım
+Alttaki kodları tek tek yapıştırın
+
+> **PRIVATE_KEYINIZ yazan kısma PRIVATE_KEYINIZ yazısını silip yapıştırın.**
+
+```bash
+export NODE_ENV=testnet
+export LOG_LEVEL=debug
+export LOG_PRETTY=false
+export EXECUTOR_PROCESS_ORDERS=true
+export EXECUTOR_PROCESS_CLAIMS=true
+export ENABLED_NETWORKS='arbitrum-sepolia,base-sepolia,optimism-sepolia,l1rn'
+export PRIVATE_KEY_LOCAL=PRIVATE_KEYINIZ
+```
+
+#### Executor çalıştıralım
+
+Kodun hepsi kopyalayıp tek seferde yapıştırın.
+
+```bash
+cd && rm -rf executor && LATEST_VERSION=$(curl -s https://api.github.com/repos/t3rn/executor-release/releases/latest | grep 'tag_name' | cut -d\" -f4) && EXECUTOR_URL="https://github.com/t3rn/executor-release/releases/download/${LATEST_VERSION}/executor-linux-${LATEST_VERSION}.tar.gz" && curl -L -o executor-linux-${LATEST_VERSION}.tar.gz $EXECUTOR_URL && tar -xzvf executor-linux-${LATEST_VERSION}.tar.gz && rm -rf executor-linux-${LATEST_VERSION}.tar.gz && cd executor/executor/bin || exit && ./executor
+```
+
+Screenden **CTRL + A + D** çıkabilirsiniz.
+
+<Note>
+Kontrol için \
+https://bridge.t1rn.io/executor/CuzdanAdresiniz/total **CuzdanAdresiniz** kısmına adresinizi yazıp link yapıştırdığınızda executor aldığı işlemleri ve puanlarınızı görebilirsiniz..
+</Note>
+
+---
+
+## Güncelleme için
+Screene girin
+```bash
+screen -r executor
+```
+
+Kodun hepsi kopyalayıp tek seferde yapıştırın.
+```bash
+cd && rm -rf executor && LATEST_VERSION=$(curl -s https://api.github.com/repos/t3rn/executor-release/releases/latest | grep 'tag_name' | cut -d\" -f4) && EXECUTOR_URL="https://github.com/t3rn/executor-release/releases/download/${LATEST_VERSION}/executor-linux-${LATEST_VERSION}.tar.gz" && curl -L -o executor-linux-${LATEST_VERSION}.tar.gz $EXECUTOR_URL && tar -xzvf executor-linux-${LATEST_VERSION}.tar.gz && rm -rf executor-linux-${LATEST_VERSION}.tar.gz && cd executor/executor/bin || exit && ./executor
+```
