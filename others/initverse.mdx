@@ -1,0 +1,47 @@
+---
+title: 'Initverse'
+description: ''
+---
+
+<Info>
+**Sürekli çalışacak.**
+
+Kullandığım sunucu: **Ubuntu 22.04**
+
+Ne kadar çok güçlü bir sunucu olursa o kadar çok kazıyor.
+</Info>
+
+#### Screen oluşturalım
+
+```bash
+screen -S init
+```
+
+#### Paket güncellemeleri ve eksik paketleri yükleyelim
+
+```bash
+sudo apt update -y && sudo apt upgrade -y
+sudo apt install htop ca-certificates zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev tmux iptables curl nvme-cli git wget make jq libleveldb-dev build-essential pkg-config ncdu tar clang bsdmainutils lsb-release libssl-dev libreadline-dev libffi-dev gcc screen unzip lz4 -y
+```
+
+#### Initverse mining uygulamasını indirelim
+
+```bash
+wget https://github.com/Project-InitVerse/ini-miner/releases/download/v1.0.0/iniminer-linux-x64
+chmod +x iniminer-linux-x64
+```
+
+#### Gerekli düzenlemeleri yapıp mining başlatın
+**CUZDANADRESI** kısmına cüzdan adresinizi **WORKERADI** kısmına worker için istediğiniz adı veriniz.
+--cpu-devices 1 ve --cpu-devices 2 gibi kaç çekirdek kullanmak istiyorsanız aynı komutu kopyalayıp devamına yapıştırın.
+
+```bash
+./iniminer-linux-x64 --pool stratum+tcp://CUZDANADRESI.WORKERADI@@pool-c.yatespool.com:31189 --cpu-devices 1 --cpu-devices 2
+```
+
+Screenden **CTRL + A + D** çıkabilirsiniz.
+
+
+<Info>
+https://c.yatespool.com/ adresinden kontrol edebilirsiniz.
+</Info>
