@@ -1,0 +1,39 @@
+---
+title: 'Datagram'
+description: ''
+---
+
+<Info>
+Herhangi bir sunucuya kurabilirsiniz. **Sürekli çalışacak.** \
+Kullandığım sunucu: **Ubuntu 22.04**
+</Info>
+
+1. https://dashboard.datagram.network?ref=812367068 adresine gidip mail ile kayıt olun. 
+2. https://dashboard.datagram.network/wallet?tab=licenses sayfasına gidin.
+3. Verdiği **key** kopyalayın.
+
+---
+
+Sunucuya geçelim
+
+#### Screen oluşturalım
+
+```bash
+screen -S datagram
+```
+
+
+#### Datagram kurup çalıştıralım
+
+> Çalıştırdığınızda key isteyecek. **3. adımda** aldığınız key girin.
+
+```bash
+wget -O datagram.sh https://raw.githubusercontent.com/krayir23/shell/refs/heads/main/datagram.sh && chmod +x datagram.sh && ./datagram.sh
+```
+
+Screenden **CTRL + A + D** çıkabilirsiniz.
+
+<Note>
+Kontrol için \
+https://dashboard.datagram.network/overview **NETWORK STATUS** kısmında node çalıştığını görebilirsiniz.
+</Note>
