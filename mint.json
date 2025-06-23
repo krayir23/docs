@@ -76,7 +76,8 @@
           "group": "Nexus",
           "pages": [
             "others/nexus-proof",
-            "others/nexus-prover"
+            "others/nexus-prover",
+            "others/nexus-prover-testnet3"
           ]
         },
         {
