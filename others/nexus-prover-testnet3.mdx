@@ -1,0 +1,67 @@
+---
+title: 'Nexus 3. Testnet'
+description: ''
+---
+
+<Warning>
+Ubuntu 24.04 bir sunucuya kurabilirsiniz. **Birkaç gün çalışacak.**
+</Warning>
+
+1. https://app.nexus.xyz/ adresine gidin ve google ile giriş yapın.
+2. Sol menüden node kısmına tıklayıp Add tıklayın kodu alın.
+
+Sunucuya geçelim
+
+### Screen oluşturalım
+
+```bash
+screen -S nexus
+```
+
+### Hazırlıkları yapalım
+
+Bu komutları sırasıyla çalıştırın.
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt install -y protobuf-compiler
+apt install pkg-config
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+. "$HOME/.cargo/env"
+echo 'source $HOME/.cargo/env' >> ~/.bashrc
+rustup target add riscv32i-unknown-none-elf
+```
+
+### Yükleyelim
+
+Aşağıdaki komutu çalıştırın.
+
+```bash
+curl https://cli.nexus.xyz/ | sh
+source ~/.bashrc
+```
+
+#### Çalıştıralım
+
+**your-node-id** kısmına **2. adımda** aldığınız node id yazın.
+
+```bash
+nexus-network start --node-id your-node-id
+```
+
+Daha sonra **Y/N** soracak **Y** yazıp **Enter**e tıklayın.
+
+#### Güncellemek için
+```bash
+curl https://cli.nexus.xyz/ | sh
+```
+
+#### Tekrar başlatmak için
+```bash
+nexus-network start --node-id your-node-id
+```
+
+<Note>
+https://app.nexus.xyz/ adresinden kontrol edebilirsiniz.
+</Note>
